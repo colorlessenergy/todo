@@ -1,9 +1,9 @@
 import { useTodosContext } from '@/contexts/TodosContext';
 
 const Todos = () => {
-    const { todos } = useTodosContext();
+    const { todos, currentList } = useTodosContext();
 
-    return todos.map(({ id, todo }) => {
+    return todos[currentList].todos.map(({ id, todo }) => {
         return (
             <div key={id} className="todo">
                 <input type="checkbox" id={`todo-${id}`} name={`todo-${id}`} />
