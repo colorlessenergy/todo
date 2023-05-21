@@ -1,5 +1,6 @@
 import Head from 'next/head';
 
+import Todos from '@/components/Todos';
 import { Roboto_Mono } from 'next/font/google';
 
 const roboto_mono = Roboto_Mono({ subsets: ['latin'] });
@@ -32,17 +33,7 @@ export default function Home() {
                     <button>+</button>
                 </div>
 
-                <div className="todo">
-                    <input type="checkbox" id="todo-1" name="todo-1" />
-                    <label htmlFor="todo-1" className="checkbox-input"></label>
-                    <label htmlFor="todo-1">drink water</label>
-                </div>
-
-                <div className="todo">
-                    <input type="checkbox" id="todo-2" name="todo-2" />
-                    <label htmlFor="todo-2" className="checkbox-input"></label>
-                    <label htmlFor="todo-2">create grocery list</label>
-                </div>
+                <Todos />
             </div>
         </>
     );
