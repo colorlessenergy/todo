@@ -1,7 +1,8 @@
 import Head from 'next/head';
 
-import Todos from '@/components/Todos';
+import AddTodo from '@/components/AddTodo';
 import ListSelector from '@/components/ListSelector';
+import Todos from '@/components/Todos';
 
 import { Roboto_Mono } from 'next/font/google';
 
@@ -20,12 +21,8 @@ export default function Home() {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <div className={roboto_mono.className + ' container'}>
-                <div>
-                    <label htmlFor="todo" className="d-none">
-                        todo
-                    </label>
-                    <input type="text" id="todo" name="todo" />
-                </div>
+                <AddTodo />
+
                 <div className="list-buttons">
                     <ListSelector />
 
