@@ -1,15 +1,13 @@
 import Head from 'next/head';
 
 import Todos from '@/components/Todos';
-import { useTodosContext } from '@/contexts/TodosContext';
+import ListSelector from '@/components/ListSelector';
 
 import { Roboto_Mono } from 'next/font/google';
 
 const roboto_mono = Roboto_Mono({ subsets: ['latin'] });
 
 export default function Home() {
-    const { todos, currentList, setCurrentList } = useTodosContext();
-
     return (
         <>
             <Head>
@@ -29,22 +27,7 @@ export default function Home() {
                     <input type="text" id="todo" name="todo" />
                 </div>
                 <div className="list-buttons">
-                    <div>
-                        {todos.map(({ id, list }, index) => {
-                            return (
-                                <button
-                                    key={id}
-                                    onClick={() => setCurrentList(index)}
-                                    className={`${
-                                        currentList === index
-                                            ? 'text-underline'
-                                            : ''
-                                    }`}>
-                                    {list}
-                                </button>
-                            );
-                        })}
-                    </div>
+                    <ListSelector />
 
                     <button>+</button>
                 </div>
