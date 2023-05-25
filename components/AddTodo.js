@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { useTodosContext } from '@/contexts/TodosContext';
 
-const AddTodo = () => {
+const AddTodo = ({ addList, setAddList }) => {
     const { todos, setTodos, currentList, id, setId } = useTodosContext();
 
     const [input, setInput] = useState('');
@@ -13,20 +13,30 @@ const AddTodo = () => {
     const handleOnKeyUp = event => {
         if (input === '') return;
 
-        if (event.keyCode === 13) {
-            let cloneTodos = JSON.parse(JSON.stringify(todos));
+        if (event.keyCode !== 13) return;
+
+        let cloneTodos = JSON.parse(JSON.stringify(todos));
+        if (addList) {
+            cloneTodos.push({
+                id,
+                list: input,
+                todos: []
+            });
+
+            setAddList(false);
+        } else {
             cloneTodos[currentList].todos.push({
                 id,
                 todo: input,
                 done: false
             });
-
-            setTodos(cloneTodos);
-
-            setInput('');
-
-            setId(previousId => previousId + 1);
         }
+
+        setTodos(cloneTodos);
+
+        setInput('');
+
+        setId(previousId => previousId + 1);
     };
 
     return (
