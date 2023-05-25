@@ -21,6 +21,7 @@ button {
 
 input[type='text'] {
     border: none;
+    margin-top: 5px;
     padding: 15px 10px;
     width: 100%;
 
@@ -72,10 +73,6 @@ input[type='checkbox']:checked ~ label {
 
 .todo label {
     cursor: pointer;
-}
-
-.d-none {
-    display: none;
 }
 
 .text-underline {

@@ -41,9 +41,7 @@ const AddTodo = ({ addList, setAddList }) => {
 
     return (
         <div>
-            <label htmlFor="todo" className="d-none">
-                todo
-            </label>
+            <label htmlFor="todo">{addList ? 'add list' : 'add todo'}</label>
             <input
                 type="text"
                 onChange={handleInputChange}
